@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgq244l7qjtak"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m3628"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqyfj"]
+size = Vector2(52, 156)
+
+[node name="ObjetoColidivel" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_m3628")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_aqyfj")
+debug_color = Color(0.795777, 0.367783, 0.558194, 0.42)

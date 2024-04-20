@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2l7x0jqy8xk0"]
+
+[ext_resource type="Script" path="res://src/scenes/map/casa.gd" id="1_7hdss"]
+[ext_resource type="PackedScene" uid="uid://d23wds0thuiyw" path="res://src/scenes/player/player.tscn" id="2_727vv"]
+[ext_resource type="PackedScene" uid="uid://2qsab265gxrx" path="res://src/scenes/coletaveis/coletavel.tscn" id="3_5sonf"]
+[ext_resource type="PackedScene" uid="uid://cgq244l7qjtak" path="res://src/scenes/objetosColidiveis/objeto_colidivel.tscn" id="4_gds6a"]
+
+[node name="Casa" type="Node2D"]
+script = ExtResource("1_7hdss")
+
+[node name="Player" parent="." instance=ExtResource("2_727vv")]
+position = Vector2(234, 208)
+
+[node name="Coletavel" parent="." instance=ExtResource("3_5sonf")]
+position = Vector2(676, 546)
+
+[node name="Coletavel2" parent="." instance=ExtResource("3_5sonf")]
+position = Vector2(858, 182)
+
+[node name="Coletavel3" parent="." instance=ExtResource("3_5sonf")]
+position = Vector2(598, 144)
+
+[node name="Coletavel4" parent="." instance=ExtResource("3_5sonf")]
+position = Vector2(442, 598)
+
+[node name="Coletavel5" parent="." instance=ExtResource("3_5sonf")]
+position = Vector2(338, 442)
+
+[node name="Coletavel6" parent="." instance=ExtResource("3_5sonf")]
+position = Vector2(936, 624)
+
+[node name="Coletavel7" parent="." instance=ExtResource("3_5sonf")]
+position = Vector2(754, 390)
+
+[node name="Coletavel8" parent="." instance=ExtResource("3_5sonf")]
+position = Vector2(806, 416)
+
+[node name="SofaColidivel" type="Sprite2D" parent="."]
+position = Vector2(416, 208)
+
+[node name="ObjetoColidivel" parent="SofaColidivel" instance=ExtResource("4_gds6a")]
