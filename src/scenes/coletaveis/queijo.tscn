@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://my07ydwub7ir"]
+
+[ext_resource type="Texture2D" uid="uid://blmhaakxkera7" path="res://src/assets/queijo.png" id="1_prr2a"]
+[ext_resource type="PackedScene" uid="uid://2qsab265gxrx" path="res://src/scenes/coletaveis/coletavel.tscn" id="2_htxlm"]
+
+[node name="Queijo" instance=ExtResource("2_htxlm")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("1_prr2a")

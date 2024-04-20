@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2l7x0jqy8xk0"]
+[gd_scene load_steps=8 format=3 uid="uid://d2l7x0jqy8xk0"]
 
 [ext_resource type="Script" path="res://src/scenes/map/casa.gd" id="1_7hdss"]
 [ext_resource type="PackedScene" uid="uid://d23wds0thuiyw" path="res://src/scenes/player/player.tscn" id="2_727vv"]
-[ext_resource type="PackedScene" uid="uid://2qsab265gxrx" path="res://src/scenes/coletaveis/coletavel.tscn" id="3_5sonf"]
+[ext_resource type="PackedScene" uid="uid://my07ydwub7ir" path="res://src/scenes/coletaveis/queijo.tscn" id="4_657qq"]
 [ext_resource type="PackedScene" uid="uid://cgq244l7qjtak" path="res://src/scenes/objetosColidiveis/objeto_colidivel.tscn" id="4_gds6a"]
+[ext_resource type="Script" path="res://src/scenes/ui/timer/Panel.gd" id="5_ruq37"]
+[ext_resource type="FontFile" uid="uid://loxwahfvyn5h" path="res://src/assets/monogram.ttf" id="6_3y151"]
+[ext_resource type="PackedScene" uid="uid://b5xe4ntcmpwvo" path="res://src/scenes/ui/itens_container.tscn" id="7_nbfh1"]
 
 [node name="Casa" type="Node2D"]
 script = ExtResource("1_7hdss")
@@ -11,31 +14,48 @@ script = ExtResource("1_7hdss")
 [node name="Player" parent="." instance=ExtResource("2_727vv")]
 position = Vector2(234, 208)
 
-[node name="Coletavel" parent="." instance=ExtResource("3_5sonf")]
-position = Vector2(676, 546)
-
-[node name="Coletavel2" parent="." instance=ExtResource("3_5sonf")]
-position = Vector2(858, 182)
-
-[node name="Coletavel3" parent="." instance=ExtResource("3_5sonf")]
-position = Vector2(598, 144)
-
-[node name="Coletavel4" parent="." instance=ExtResource("3_5sonf")]
-position = Vector2(442, 598)
-
-[node name="Coletavel5" parent="." instance=ExtResource("3_5sonf")]
-position = Vector2(338, 442)
-
-[node name="Coletavel6" parent="." instance=ExtResource("3_5sonf")]
-position = Vector2(936, 624)
-
-[node name="Coletavel7" parent="." instance=ExtResource("3_5sonf")]
-position = Vector2(754, 390)
-
-[node name="Coletavel8" parent="." instance=ExtResource("3_5sonf")]
-position = Vector2(806, 416)
-
 [node name="SofaColidivel" type="Sprite2D" parent="."]
 position = Vector2(416, 208)
 
 [node name="ObjetoColidivel" parent="SofaColidivel" instance=ExtResource("4_gds6a")]
+
+[node name="Queijo" parent="." instance=ExtResource("4_657qq")]
+position = Vector2(130, 390)
+
+[node name="Queijo3" parent="." instance=ExtResource("4_657qq")]
+position = Vector2(286, 418)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Container" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Container"]
+layout_mode = 2
+offset_right = 52.0
+offset_bottom = 26.0
+script = ExtResource("5_ruq37")
+START_TIME = 5
+
+[node name="Segundos" type="Label" parent="CanvasLayer/Container/Panel"]
+layout_mode = 0
+offset_right = 31.0
+offset_bottom = 15.0
+scale = Vector2(1.7, 1.7)
+theme_override_fonts/font = ExtResource("6_3y151")
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Container/Panel"]
+wait_time = 1.147
+one_shot = true
+
+[node name="HBoxContainer" parent="CanvasLayer/Container" instance=ExtResource("7_nbfh1")]
+layout_mode = 0
+anchors_preset = 0
