@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2l7x0jqy8xk0"]
+[gd_scene load_steps=7 format=3 uid="uid://d2l7x0jqy8xk0"]
 
 [ext_resource type="Script" path="res://src/scenes/map/casa.gd" id="1_7hdss"]
 [ext_resource type="PackedScene" uid="uid://d23wds0thuiyw" path="res://src/scenes/player/player.tscn" id="2_727vv"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cgq244l7qjtak" path="res://src/scenes/objetosColidiveis/objeto_colidivel.tscn" id="4_gds6a"]
 [ext_resource type="Script" path="res://src/scenes/ui/timer/Panel.gd" id="5_ruq37"]
 [ext_resource type="FontFile" uid="uid://loxwahfvyn5h" path="res://src/assets/monogram.ttf" id="6_3y151"]
-[ext_resource type="PackedScene" uid="uid://b5xe4ntcmpwvo" path="res://src/scenes/ui/itens_container.tscn" id="7_nbfh1"]
 
 [node name="Casa" type="Node2D"]
 script = ExtResource("1_7hdss")
@@ -56,6 +55,11 @@ vertical_alignment = 3
 wait_time = 1.147
 one_shot = true
 
-[node name="HBoxContainer" parent="CanvasLayer/Container" instance=ExtResource("7_nbfh1")]
-layout_mode = 0
-anchors_preset = 0
+[node name="Queijo2" parent="." instance=ExtResource("4_657qq")]
+position = Vector2(640, 418)
+
+[node name="Queijo4" parent="." instance=ExtResource("4_657qq")]
+position = Vector2(182, 520)
+
+[node name="Queijo5" parent="." instance=ExtResource("4_657qq")]
+position = Vector2(52, 260)
