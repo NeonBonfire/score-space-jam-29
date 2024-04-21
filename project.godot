@@ -64,9 +64,11 @@ key_right={
 
 2d_render/layer_1="mundo"
 2d_render/layer_2="coletavel"
+2d_render/layer_3="carro"
 2d_physics/layer_1="mundo"
 2d_navigation/layer_1="mundo"
 2d_physics/layer_2="coletavel"
+2d_physics/layer_3="carro"
 
 [rendering]
 
