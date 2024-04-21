@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://d23wds0thuiyw"]
+[gd_scene load_steps=8 format=3 uid="uid://d23wds0thuiyw"]
 
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_b5o7p"]
 [ext_resource type="Texture2D" uid="uid://ndjwqimj3xbr" path="res://src/assets/rato.png" id="2_0y4n3"]
 [ext_resource type="Script" path="res://src/scenes/player/ColetavelHandler.gd" id="3_e13vb"]
 [ext_resource type="PackedScene" uid="uid://d4li7cj3qbyum" path="res://src/scenes/ui/itens_hotbar.tscn" id="4_jnufs"]
+[ext_resource type="Script" path="res://src/scenes/player/EntregaCarroHandler.gd" id="5_omt08"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyrfj"]
 radius = 50.0
@@ -40,4 +41,15 @@ shape = SubResource("CircleShape2D_6nyav")
 
 [node name="ItensHotbar" parent="ColetavelHandler/Hotbar" instance=ExtResource("4_jnufs")]
 
+[node name="EntregaCarroHandler" type="Area2D" parent="."]
+position = Vector2(68, 0)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("5_omt08")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EntregaCarroHandler"]
+shape = SubResource("CircleShape2D_6nyav")
+
 [connection signal="bolsa_atualizada" from="ColetavelHandler" to="ColetavelHandler/Hotbar/ItensHotbar" method="_on_coletavel_handler_bolsa_atualizada"]
+[connection signal="pontuacao_calculada" from="EntregaCarroHandler" to="ColetavelHandler" method="_on_entrega_carro_handler_pontuacao_calculada"]

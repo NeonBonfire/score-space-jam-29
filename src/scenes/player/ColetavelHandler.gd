@@ -12,8 +12,6 @@ func _ready():
 
 
 func _physics_process(_delta):
-	if Input.is_action_just_pressed("right_mouse"):
-		limpar_bolsa()
 	if Input.is_action_just_pressed("left_mouse"):
 		for coletavel in get_overlapping_areas():
 			if BOLSA.get_child_count() < LIMITE_ITENS_BOLSA:
@@ -25,8 +23,13 @@ func adicionar_item_bolsa(coletavel: Node2D):
 	BOLSA.add_child(coletavel)
 	bolsa_atualizada.emit(BOLSA)
 
+
 func limpar_bolsa():
 	for item in BOLSA.get_children():
 		item.queue_free()
 		await item.tree_exited
 		bolsa_atualizada.emit(BOLSA)
+
+
+func _on_entrega_carro_handler_pontuacao_calculada(pontos):
+	limpar_bolsa()
