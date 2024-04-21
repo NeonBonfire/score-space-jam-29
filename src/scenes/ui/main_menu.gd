@@ -19,7 +19,7 @@ enum OPTIONS {
 var selection = OPTIONS.START
 
 func resetSelectors():
-	for selector in selectors:
+	for selector in selectors:	
 		selector.text = ""
 
 func _ready():
@@ -64,3 +64,19 @@ func creditsScene():
 
 func quitGame():
 	get_tree().quit()
+	
+
+func _input(event):
+	var is_mouse_motion = event is InputEventMouseMotion
+	var is_left_mouse_click = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
+	
+	if is_mouse_motion or is_left_mouse_click:
+		for i in range(selectors.size()):
+			var selector = selectors[i]
+			var rect = selector.get_global_rect()
+			if rect.has_point(event.position):
+				setCurrentSelection(i)
+				if event is InputEventMouseButton:
+					handleSelection(i)
+				return  # Exit the function after handling hover or click
+
