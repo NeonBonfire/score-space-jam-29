@@ -10,6 +10,13 @@ enum OPTIONS {
 	LENGTH
 }
 
+@onready var buttons = [
+	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/StartButton,
+	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/OptionsButton,
+	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/CreditsButton,
+	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/QuitButton
+]
+
 @onready var selectors = [
 	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/StartButton/HBoxContainer/Selector,
 	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/OptionsButton/HBoxContainer/Selector,
@@ -26,13 +33,13 @@ func _ready():
 	setCurrentSelection(selection)
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("key_down"):
 		selection = wrapi(selection + 1, 0, OPTIONS.LENGTH)
 		setCurrentSelection(selection)
-	elif Input.is_action_just_pressed("ui_up"):
+	elif Input.is_action_just_pressed("key_up"):
 		selection = wrapi(selection - 1, 0, OPTIONS.LENGTH)
 		setCurrentSelection(selection)
-	elif Input.is_action_just_pressed("ui_accept"):
+	elif Input.is_action_just_pressed("left_mouse"):
 		handleSelection(selection)
 
 func setCurrentSelection(_current_selection):
@@ -71,12 +78,13 @@ func _input(event):
 	var is_left_mouse_click = event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed
 	
 	if is_mouse_motion or is_left_mouse_click:
-		for i in range(selectors.size()):
-			var selector = selectors[i]
-			var rect = selector.get_global_rect()
+		for i in range(buttons.size()):
+			var button = buttons[i]
+			var rect = button.get_global_rect()
 			if rect.has_point(event.position):
+				selection = i
 				setCurrentSelection(i)
 				if event is InputEventMouseButton:
 					handleSelection(i)
-				return  # Exit the function after handling hover or click
+				return
 

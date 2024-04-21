@@ -16,7 +16,40 @@ script = ExtResource("1_7hdss")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Container" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = -46.0
+offset_right = 40.0
+offset_bottom = 26.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.00814
+anchor_bottom = 0.980769
+offset_right = -35.7
+offset_bottom = -10.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.7, 1.7)
+theme_override_fonts/font = ExtResource("6_3y151")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Tempo" type="CanvasLayer" parent="."]
+
+[node name="Container" type="Control" parent="Tempo"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,14 +57,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Container"]
+[node name="Panel" type="Panel" parent="Tempo/Container"]
 layout_mode = 2
-offset_right = 52.0
-offset_bottom = 26.0
+anchor_right = 0.0451389
+anchor_bottom = 0.0401235
 script = ExtResource("5_ruq37")
 START_TIME = 5
+metadata/_edit_use_anchors_ = true
 
-[node name="Segundos" type="Label" parent="CanvasLayer/Container/Panel"]
+[node name="Segundos" type="Label" parent="Tempo/Container/Panel"]
 layout_mode = 0
 offset_right = 31.0
 offset_bottom = 15.0
@@ -39,9 +73,8 @@ scale = Vector2(1.7, 1.7)
 theme_override_fonts/font = ExtResource("6_3y151")
 text = "00"
 horizontal_alignment = 1
-vertical_alignment = 3
 
-[node name="Timer" type="Timer" parent="CanvasLayer/Container/Panel"]
+[node name="Timer" type="Timer" parent="Tempo/Container/Panel"]
 wait_time = 1.147
 one_shot = true
 
@@ -51,7 +84,16 @@ position = Vector2(416, 208)
 [node name="ObjetoColidivel" parent="SofaColidivel" instance=ExtResource("4_gds6a")]
 
 [node name="Player" parent="." instance=ExtResource("2_727vv")]
-position = Vector2(234, 208)
+position = Vector2(546, 340)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_left = 0
+limit_top = 0
+limit_right = 2000
+limit_bottom = 2000
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
 
 [node name="Queijo2" parent="." instance=ExtResource("4_657qq")]
 position = Vector2(640, 418)
