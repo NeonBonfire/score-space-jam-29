@@ -5,22 +5,19 @@ var already_running_option = false
 enum OPTIONS {
 	START = 0, 
 	SCOREBOARD = 1, 
-	CREDITS = 2, 
-	QUIT = 3, 
+	QUIT = 2, 
 	LENGTH
 }
 
 @onready var buttons = [
 	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/StartButton,
 	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/ScoreBoardButton,
-	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/CreditsButton,
 	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/QuitButton
 ]
 
 @onready var selectors = [
 	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/StartButton/HBoxContainer/Selector,
 	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/ScoreBoardButton/HBoxContainer/Selector,
-	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/CreditsButton/HBoxContainer/Selector,
 	$CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/QuitButton/HBoxContainer/Selector
 ]
 var selection = OPTIONS.START
@@ -54,7 +51,6 @@ func handleSelection(_current_selection):
 var optionsActions = {
 	OPTIONS.START: "startGame",
 	OPTIONS.SCOREBOARD: "scoreboardScene",
-	OPTIONS.CREDITS: "creditsScene",
 	OPTIONS.QUIT: "quitGame"
 }
 
@@ -72,9 +68,6 @@ func scoreboardScene():
 	var scoreboard_scene = load("res://src/scenes/ui/score_board/score_board.tscn")
 	get_parent().add_child.call_deferred(scoreboard_scene.instantiate())
 	queue_free()
-
-func creditsScene():
-	print("TODO: add credits scene")
 
 func quitGame():
 	get_tree().quit()

@@ -33,7 +33,7 @@ layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("1_g4a4f")
 theme_override_font_sizes/normal_font_size = 90
 bbcode_enabled = true
-text = "[shake][center][rainbow freq=1.0 sat=0.8 val=0.8]Hello STRANGER![/rainbow][/center][/shake]"
+text = "[shake][center][rainbow freq=1.0 sat=0.8 val=0.8]You Escaped![/rainbow][/center][/shake]"
 fit_content = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]

@@ -1,11 +1,18 @@
 extends Area2D
 
 signal bolsa_atualizada(bolsa: Node2D)
-const LIMITE_ITENS_BOLSA = 3
+const LIMITE_ITENS_BOLSA = 10
 
 @onready var VARIAVEIS_GLOBAIS = get_node("/root/VariaveisGlobais")
 @onready var BOLSA: Node2D = $"../Bolsa"
 @onready var PONTUACAO_LABEL: Label = $"../EntregaCarroHandler/Pontuacao/Control/Panel/Label"
+
+@onready var ITENS: Dictionary = {
+	"res://src/scenes/coletaveis/carteira.tscn": 40,
+	"res://src/scenes/coletaveis/colar.tscn": 70,
+	"res://src/scenes/coletaveis/saco_de_ouro.tscn": 150,
+	"res://src/scenes/coletaveis/queijo.tscn": 210,
+}
 
 var pontosTotais = 0
 
@@ -23,6 +30,7 @@ func _physics_process(_delta):
 
 func adicionar_item_bolsa(coletavel: Node2D):
 	BOLSA.add_child(coletavel)
+	adiciona_pontos(ITENS[coletavel.scene_file_path])
 	bolsa_atualizada.emit(BOLSA)
 
 
@@ -33,8 +41,7 @@ func limpar_bolsa():
 		bolsa_atualizada.emit(BOLSA)
 
 
-func _on_entrega_carro_handler_pontuacao_calculada(pontos):
+func adiciona_pontos(pontos):
 	pontosTotais += pontos
 	PONTUACAO_LABEL.text = str(pontosTotais)
 	VARIAVEIS_GLOBAIS.pontos = pontosTotais
-	limpar_bolsa()

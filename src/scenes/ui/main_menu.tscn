@@ -85,27 +85,6 @@ theme_override_fonts/font = ExtResource("1_7m84b")
 theme_override_font_sizes/font_size = 32
 text = "Scoreboard"
 
-[node name="CreditsButton" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/CreditsButton"]
-layout_mode = 2
-
-[node name="Selector" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/CreditsButton/HBoxContainer"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_7m84b")
-theme_override_font_sizes/font_size = 32
-text = ">"
-
-[node name="Btn" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/CreditsButton/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_7m84b")
-theme_override_font_sizes/font_size = 32
-text = "Credits"
-
 [node name="QuitButton" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -127,3 +106,20 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7m84b")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 832.0
+offset_top = 156.0
+offset_right = 1100.0
+offset_bottom = 248.0
+theme_override_fonts/normal_font = ExtResource("1_7m84b")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "[i][shake]Grab as many itens as you can, escape in time by the door!
+
+
+mouse click -> grab itens
+w a s d -> move the player[/shake][/i]"
+fit_content = true

@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d23wds0thuiyw"]
+[gd_scene load_steps=8 format=3 uid="uid://d23wds0thuiyw"]
 
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_b5o7p"]
 [ext_resource type="Texture2D" uid="uid://ndjwqimj3xbr" path="res://src/assets/rato.png" id="2_0y4n3"]
 [ext_resource type="Script" path="res://src/scenes/player/ColetavelHandler.gd" id="3_e13vb"]
 [ext_resource type="PackedScene" uid="uid://d4li7cj3qbyum" path="res://src/scenes/ui/itens_hotbar.tscn" id="4_jnufs"]
-[ext_resource type="Script" path="res://src/scenes/player/EntregaCarroHandler.gd" id="5_omt08"]
 [ext_resource type="FontFile" uid="uid://loxwahfvyn5h" path="res://src/assets/monogram.ttf" id="6_mv52r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyrfj"]
@@ -39,6 +38,7 @@ metadata/_edit_group_ = true
 shape = SubResource("CircleShape2D_6nyav")
 
 [node name="Hotbar" type="CanvasLayer" parent="ColetavelHandler"]
+visible = false
 
 [node name="ItensHotbar" parent="ColetavelHandler/Hotbar" instance=ExtResource("4_jnufs")]
 
@@ -46,7 +46,6 @@ shape = SubResource("CircleShape2D_6nyav")
 position = Vector2(68, 0)
 collision_layer = 0
 collision_mask = 4
-script = ExtResource("5_omt08")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntregaCarroHandler"]
@@ -86,4 +85,3 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [connection signal="bolsa_atualizada" from="ColetavelHandler" to="ColetavelHandler/Hotbar/ItensHotbar" method="_on_coletavel_handler_bolsa_atualizada"]
-[connection signal="pontuacao_calculada" from="EntregaCarroHandler" to="ColetavelHandler" method="_on_entrega_carro_handler_pontuacao_calculada"]

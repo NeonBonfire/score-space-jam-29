@@ -14,7 +14,7 @@ func _process(_delta) -> void:
 
 
 func _on_timer_timeout():
-	OS.alert("you got caught, time is up :(", "Game Over!")
+	OS.alert("you could`t escape, time is up :(", "Game Over!")
 	$"../../..".get_parent().add_child.call_deferred(main_menu_scene.instantiate())
 	$"../../..".queue_free()
 	await $"../../..".tree_exited

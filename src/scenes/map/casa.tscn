@@ -1,21 +1,80 @@
-[gd_scene load_steps=12 format=3 uid="uid://d2l7x0jqy8xk0"]
+[gd_scene load_steps=30 format=3 uid="uid://d2l7x0jqy8xk0"]
 
 [ext_resource type="Script" path="res://src/scenes/map/casa.gd" id="1_7hdss"]
+[ext_resource type="Texture2D" uid="uid://daglqi2hes2nx" path="res://src/assets/layoutfinal.png" id="2_7dfj4"]
 [ext_resource type="PackedScene" uid="uid://d23wds0thuiyw" path="res://src/scenes/player/player.tscn" id="2_727vv"]
-[ext_resource type="Texture2D" uid="uid://c7nu1uqfv71dd" path="res://icon.svg" id="2_j3g7t"]
 [ext_resource type="PackedScene" uid="uid://my07ydwub7ir" path="res://src/scenes/coletaveis/queijo.tscn" id="4_657qq"]
-[ext_resource type="PackedScene" uid="uid://cgq244l7qjtak" path="res://src/scenes/objetosColidiveis/objeto_colidivel.tscn" id="4_gds6a"]
 [ext_resource type="Script" path="res://src/scenes/ui/timer/Panel.gd" id="5_ruq37"]
 [ext_resource type="FontFile" uid="uid://loxwahfvyn5h" path="res://src/assets/monogram.ttf" id="6_3y151"]
 [ext_resource type="PackedScene" uid="uid://b0v3tfpwauipo" path="res://src/scenes/coletaveis/carteira.tscn" id="8_o3rb2"]
 [ext_resource type="PackedScene" uid="uid://cigyk02tm83u7" path="res://src/scenes/coletaveis/colar.tscn" id="9_ig4ct"]
 [ext_resource type="PackedScene" uid="uid://dkb2jbufxlhgs" path="res://src/scenes/coletaveis/saco_de_ouro.tscn" id="10_0t4f3"]
+[ext_resource type="Script" path="res://src/scenes/map/WinZone.gd" id="11_pi1px"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_junn2"]
-size = Vector2(468, 208)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_441dt"]
+size = Vector2(38.9995, 89.231)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kie6h"]
+size = Vector2(39.9996, 73.4613)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rakhv"]
+size = Vector2(382, 17.3077)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjies"]
+size = Vector2(258, 8.84602)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjdhm"]
+size = Vector2(276, 16.5385)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy8kj"]
+size = Vector2(37, 20.7693)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6x57"]
+size = Vector2(40.9988, 210.385)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hu40q"]
+size = Vector2(34.9958, 730)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1grsq"]
+size = Vector2(814, 9.99908)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d53o"]
+size = Vector2(36.0037, 730)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y8cdm"]
+size = Vector2(1102, 20.0007)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xr857"]
+size = Vector2(149, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_faip2"]
+size = Vector2(445, 16.5385)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vlj4o"]
+size = Vector2(320, 17.3077)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sqbjf"]
+size = Vector2(44.9989, 194.616)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_felc3"]
+size = Vector2(40.999, 208.077)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aop7x"]
+radius = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_flxh3"]
+radius = 42.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxvv3"]
+size = Vector2(34, 149.5)
 
 [node name="Casa" type="Node2D"]
 script = ExtResource("1_7hdss")
+
+[node name="Layoutfinal" type="Sprite2D" parent="."]
+texture = ExtResource("2_7dfj4")
+centered = false
+metadata/_edit_lock_ = true
 
 [node name="Tempo" type="CanvasLayer" parent="."]
 
@@ -46,13 +105,130 @@ horizontal_alignment = 1
 [node name="Timer" type="Timer" parent="Tempo/Container/Panel"]
 one_shot = true
 
-[node name="SofaColidivel" type="Sprite2D" parent="."]
-position = Vector2(416, 208)
+[node name="Colissoes" type="Node2D" parent="."]
+modulate = Color(0.377493, 0.458842, 0.877835, 1)
+rotation = 1.57079
 
-[node name="ObjetoColidivel" parent="SofaColidivel" instance=ExtResource("4_gds6a")]
+[node name="Paredes" type="StaticBody2D" parent="Colissoes"]
+position = Vector2(-223.004, 1752)
+scale = Vector2(1, 2.6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(638.505, -860)
+shape = SubResource("RectangleShape2D_441dt")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(638.004, -720.192)
+shape = SubResource("RectangleShape2D_kie6h")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(1085.01, -1094.04)
+shape = SubResource("RectangleShape2D_rakhv")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(1024.01, -900.576)
+shape = SubResource("RectangleShape2D_xjies")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(1140.01, -1207.5)
+shape = SubResource("RectangleShape2D_hjdhm")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(1021.51, -1197.31)
+shape = SubResource("RectangleShape2D_wy8kj")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(1021.51, -1109.23)
+shape = SubResource("RectangleShape2D_wy8kj")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(556.506, -1024.04)
+shape = SubResource("RectangleShape2D_m6x57")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(240.506, -1038.85)
+shape = SubResource("RectangleShape2D_hu40q")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(908.004, -678.846)
+shape = SubResource("RectangleShape2D_1grsq")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(1297.01, -1038.85)
+shape = SubResource("RectangleShape2D_0d53o")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(764.008, -1403.85)
+shape = SubResource("RectangleShape2D_y8cdm")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(287.504, -673.846)
+shape = SubResource("RectangleShape2D_xr857")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(435.505, -911.346)
+shape = SubResource("RectangleShape2D_faip2")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(417.007, -1207.5)
+shape = SubResource("RectangleShape2D_vlj4o")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(780.508, -1298.46)
+shape = SubResource("RectangleShape2D_sqbjf")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Colissoes/Paredes"]
+position = Vector2(877.506, -997.5)
+shape = SubResource("RectangleShape2D_felc3")
+
+[node name="Carro" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(1508, 624)
+collision_layer = 5
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="Carro"]
+position = Vector2(0, -7.62939e-06)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carro/Area2D"]
+position = Vector2(10, -5)
+shape = SubResource("CircleShape2D_aop7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carro"]
+position = Vector2(10, -5.00001)
+shape = SubResource("CircleShape2D_flxh3")
+
+[node name="Queijo" parent="." instance=ExtResource("4_657qq")]
+position = Vector2(1040, 806)
+metadata/_edit_lock_ = true
+
+[node name="Carteira" parent="." instance=ExtResource("8_o3rb2")]
+position = Vector2(234, 832)
+metadata/_edit_lock_ = true
+
+[node name="Colar" parent="." instance=ExtResource("9_ig4ct")]
+position = Vector2(1742, 624)
+metadata/_edit_lock_ = true
+
+[node name="SacoDeOuro" parent="." instance=ExtResource("10_0t4f3")]
+position = Vector2(676, 195)
+metadata/_edit_lock_ = true
+
+[node name="WinZone" type="Area2D" parent="."]
+position = Vector2(-26, 208)
+script = ExtResource("11_pi1px")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinZone"]
+position = Vector2(-12, 17.25)
+shape = SubResource("RectangleShape2D_mxvv3")
 
 [node name="Player" parent="." instance=ExtResource("2_727vv")]
-position = Vector2(832, 364)
+position = Vector2(1638, 726)
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = 0
@@ -63,38 +239,5 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 
-[node name="Carro" type="StaticBody2D" parent="."]
-position = Vector2(910, 130)
-collision_layer = 5
-collision_mask = 0
-
-[node name="Area2D" type="Area2D" parent="Carro"]
-position = Vector2(0, -7.62939e-06)
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Carro/Area2D"]
-shape = SubResource("RectangleShape2D_junn2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Carro"]
-position = Vector2(0, -7.62939e-06)
-shape = SubResource("RectangleShape2D_junn2")
-
-[node name="Icon" type="Sprite2D" parent="Carro"]
-modulate = Color(0.953257, 0.157162, 0.507438, 1)
-scale = Vector2(3.65625, 1.625)
-texture = ExtResource("2_j3g7t")
-
-[node name="Queijo" parent="." instance=ExtResource("4_657qq")]
-position = Vector2(520, 390)
-
-[node name="Carteira" parent="." instance=ExtResource("8_o3rb2")]
-position = Vector2(468, 520)
-
-[node name="Colar" parent="." instance=ExtResource("9_ig4ct")]
-position = Vector2(728, 572)
-
-[node name="SacoDeOuro" parent="." instance=ExtResource("10_0t4f3")]
-position = Vector2(1014, 520)
-
 [connection signal="timeout" from="Tempo/Container/Panel/Timer" to="Tempo/Container/Panel" method="_on_timer_timeout"]
+[connection signal="body_entered" from="WinZone" to="WinZone" method="_on_body_entered"]
