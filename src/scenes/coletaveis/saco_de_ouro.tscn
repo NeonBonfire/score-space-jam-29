@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkb2jbufxlhgs"]
+
+[ext_resource type="PackedScene" uid="uid://2qsab265gxrx" path="res://src/scenes/coletaveis/coletavel.tscn" id="1_kfdyd"]
+[ext_resource type="Texture2D" uid="uid://bx2g41ivdxfs7" path="res://src/assets/saco_ouro.png" id="2_j8ct5"]
+
+[node name="SacoDeOuro" instance=ExtResource("1_kfdyd")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_j8ct5")

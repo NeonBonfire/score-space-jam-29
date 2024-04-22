@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0v3tfpwauipo"]
+
+[ext_resource type="PackedScene" uid="uid://2qsab265gxrx" path="res://src/scenes/coletaveis/coletavel.tscn" id="1_gdp5o"]
+[ext_resource type="Texture2D" uid="uid://7mlfv8m2txft" path="res://src/assets/carteira.png" id="2_usxg4"]
+
+[node name="Carteira" instance=ExtResource("1_gdp5o")]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_usxg4")
