@@ -36,7 +36,7 @@ func loadSave():
 	return result
 
 
-func writeSave(save):
+func writeSave(save: Array):
 	var scores = loadSave()
 	var file = FileAccess.open(FILE_PATH, FileAccess.READ_WRITE)
 	for line: Array in scores:

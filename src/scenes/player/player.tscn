@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d23wds0thuiyw"]
+[gd_scene load_steps=9 format=3 uid="uid://d23wds0thuiyw"]
 
 [ext_resource type="Script" path="res://src/scenes/player/player.gd" id="1_b5o7p"]
 [ext_resource type="Texture2D" uid="uid://ndjwqimj3xbr" path="res://src/assets/rato.png" id="2_0y4n3"]
 [ext_resource type="Script" path="res://src/scenes/player/ColetavelHandler.gd" id="3_e13vb"]
 [ext_resource type="PackedScene" uid="uid://d4li7cj3qbyum" path="res://src/scenes/ui/itens_hotbar.tscn" id="4_jnufs"]
 [ext_resource type="Script" path="res://src/scenes/player/EntregaCarroHandler.gd" id="5_omt08"]
+[ext_resource type="FontFile" uid="uid://loxwahfvyn5h" path="res://src/assets/monogram.ttf" id="6_mv52r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cyrfj"]
 radius = 50.0
@@ -50,6 +51,39 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EntregaCarroHandler"]
 shape = SubResource("CircleShape2D_6nyav")
+
+[node name="Pontuacao" type="CanvasLayer" parent="EntregaCarroHandler"]
+
+[node name="Control" type="Control" parent="EntregaCarroHandler/Pontuacao"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="Panel" type="Panel" parent="EntregaCarroHandler/Pontuacao/Control"]
+layout_mode = 0
+offset_left = -46.0
+offset_right = 40.0
+offset_bottom = 26.0
+
+[node name="Label" type="Label" parent="EntregaCarroHandler/Pontuacao/Control/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.00814
+anchor_bottom = 0.980769
+offset_right = -35.7
+offset_bottom = -10.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.7, 1.7)
+theme_override_fonts/font = ExtResource("6_mv52r")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [connection signal="bolsa_atualizada" from="ColetavelHandler" to="ColetavelHandler/Hotbar/ItensHotbar" method="_on_coletavel_handler_bolsa_atualizada"]
 [connection signal="pontuacao_calculada" from="EntregaCarroHandler" to="ColetavelHandler" method="_on_entrega_carro_handler_pontuacao_calculada"]
