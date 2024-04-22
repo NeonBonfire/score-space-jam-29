@@ -32,7 +32,6 @@ layout_mode = 2
 anchor_right = 0.0451389
 anchor_bottom = 0.0401235
 script = ExtResource("5_ruq37")
-START_TIME = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="Segundos" type="Label" parent="Tempo/Container/Panel"]
@@ -45,7 +44,6 @@ text = "00"
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="Tempo/Container/Panel"]
-wait_time = 1.147
 one_shot = true
 
 [node name="SofaColidivel" type="Sprite2D" parent="."]

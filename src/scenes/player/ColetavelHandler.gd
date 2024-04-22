@@ -3,6 +3,7 @@ extends Area2D
 signal bolsa_atualizada(bolsa: Node2D)
 const LIMITE_ITENS_BOLSA = 3
 
+@onready var VARIAVEIS_GLOBAIS = get_node("/root/VariaveisGlobais")
 @onready var BOLSA: Node2D = $"../Bolsa"
 @onready var PONTUACAO_LABEL: Label = $"../EntregaCarroHandler/Pontuacao/Control/Panel/Label"
 
@@ -35,4 +36,5 @@ func limpar_bolsa():
 func _on_entrega_carro_handler_pontuacao_calculada(pontos):
 	pontosTotais += pontos
 	PONTUACAO_LABEL.text = str(pontosTotais)
+	VARIAVEIS_GLOBAIS.pontos = pontosTotais
 	limpar_bolsa()

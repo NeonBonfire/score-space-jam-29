@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjx7lcqnx8ub7"]
+
+[ext_resource type="FontFile" uid="uid://loxwahfvyn5h" path="res://src/assets/monogram.ttf" id="1_g4a4f"]
+[ext_resource type="Script" path="res://src/scenes/ui/whats_your_name.gd" id="1_xtb8s"]
+
+[node name="WhatsYourName" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xtb8s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -325.0
+offset_top = -90.0
+offset_right = 325.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 70)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_g4a4f")
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[shake][center][rainbow freq=1.0 sat=0.8 val=0.8]Hello STRANGER![/rainbow][/center][/shake]"
+fit_content = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(430, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_g4a4f")
+theme_override_font_sizes/font_size = 30
+placeholder_text = "What is your name? (max 5 characters)"
+alignment = 1
+max_length = 5
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("1_g4a4f")
+theme_override_font_sizes/font_size = 40
+text = ">Continue"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]

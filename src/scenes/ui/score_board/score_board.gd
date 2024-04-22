@@ -1,7 +1,8 @@
 extends Control
 
-
+const main_menu_scene = preload("res://src/scenes/ui/main_menu.tscn")
 const FILE_PATH = "res://data/save_game.csv"
+@onready var VARIAVEIS_GLOBAIS = get_node("/root/VariaveisGlobais")
 @onready var DEFAULT_ROW = $VBoxContainer/DefaultRow
 @onready var VBOX = $VBoxContainer
 
@@ -9,10 +10,9 @@ const FILE_PATH = "res://data/save_game.csv"
 func _ready():
 	var scores = loadSave()
 	scores.sort_custom(custom_array_sort)
-	print(scores)
 	for i in scores.size():
 		var newRow = DEFAULT_ROW.duplicate()
-		newRow.get_node("Rank").text = str(i) + "."
+		newRow.get_node("Rank").text = str(i+1) + "."
 		newRow.get_node("Nome").text = scores[i][0]
 		newRow.get_node("Pontos").text = scores[i][1]
 		newRow.visible = true
@@ -38,8 +38,14 @@ func loadSave():
 
 func writeSave(save: Array):
 	var scores = loadSave()
-	var file = FileAccess.open(FILE_PATH, FileAccess.READ_WRITE)
+	var file = FileAccess.open(FILE_PATH, FileAccess.WRITE)
 	for line: Array in scores:
 			file.store_csv_line(line)
 	file.store_csv_line(save)
 	file.close()
+
+
+func _on_button_pressed():
+	get_parent().add_child.call_deferred(main_menu_scene.instantiate())
+	queue_free()
+	await self.tree_exited

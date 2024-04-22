@@ -13,6 +13,20 @@ grow_vertical = 2
 script = ExtResource("1_a4vs5")
 metadata/_edit_use_anchors_ = true
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.857639
+anchor_top = 0.0401235
+anchor_right = 0.967882
+anchor_bottom = 0.108025
+grow_horizontal = 0
+theme_type_variation = &"FlatButton"
+theme_override_fonts/font = ExtResource("1_cuy8a")
+theme_override_font_sizes/font_size = 45
+text = ">Voltar"
+metadata/_edit_use_anchors_ = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -59,3 +73,5 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_cuy8a")
 theme_override_font_sizes/font_size = 60
 text = "0000"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
