@@ -27,11 +27,12 @@ func loadSave():
 	var file = FileAccess.open(FILE_PATH, FileAccess.READ)
 	
 	var result = Array()
-	while !file.eof_reached():
-		var content: Array = file.get_csv_line()
-		if !String(content[0]).is_empty():
-			result.append(content)
-	file.close()
+	if file != null:
+		while !file.eof_reached():
+			var content: Array = file.get_csv_line()
+			if !String(content[0]).is_empty():
+				result.append(content)
+		file.close()
 	return result
 
 
