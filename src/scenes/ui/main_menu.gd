@@ -85,6 +85,6 @@ func _input(event):
 				selection = i
 				setCurrentSelection(i)
 				if event is InputEventMouseButton:
-					handleSelection(i)
+					handleSelection(selection)
 				return
 
