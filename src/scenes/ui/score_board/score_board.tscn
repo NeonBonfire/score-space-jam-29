@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4l4tksw2uedu"]
+
+[ext_resource type="Script" path="res://src/scenes/ui/score_board/score_board.gd" id="1_a4vs5"]
+[ext_resource type="FontFile" uid="uid://loxwahfvyn5h" path="res://src/assets/monogram.ttf" id="1_cuy8a"]
+
+[node name="ScoreBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a4vs5")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_right = 250.0
+offset_bottom = 790.481
+grow_horizontal = 2
+
+[node name="ScoreboardRow" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/ScoreboardRow"]
+clip_contents = false
+custom_minimum_size = Vector2(500, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("1_cuy8a")
+theme_override_font_sizes/normal_font_size = 90
+bbcode_enabled = true
+text = "[shake][center][rainbow freq=1.0 sat=0.8 val=0.8]SCOREBOARD[/rainbow][/center][/shake]"
+fit_content = true
+
+[node name="DefaultRow" type="HBoxContainer" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Rank" type="Label" parent="VBoxContainer/DefaultRow"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cuy8a")
+theme_override_font_sizes/font_size = 60
+text = "1."
+
+[node name="Nome" type="Label" parent="VBoxContainer/DefaultRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("1_cuy8a")
+theme_override_font_sizes/font_size = 60
+text = "NOME"
+
+[node name="Pontos" type="Label" parent="VBoxContainer/DefaultRow"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_cuy8a")
+theme_override_font_sizes/font_size = 60
+text = "0000"
