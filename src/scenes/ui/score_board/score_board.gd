@@ -48,4 +48,4 @@ func writeSave(save: Array):
 func _on_button_pressed():
 	get_parent().add_child.call_deferred(main_menu_scene.instantiate())
 	queue_free()
-	await self.tree_exited
+	await tree_exited

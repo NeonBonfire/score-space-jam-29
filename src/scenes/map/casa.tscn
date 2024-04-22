@@ -96,3 +96,5 @@ position = Vector2(728, 572)
 
 [node name="SacoDeOuro" parent="." instance=ExtResource("10_0t4f3")]
 position = Vector2(1014, 520)
+
+[connection signal="timeout" from="Tempo/Container/Panel/Timer" to="Tempo/Container/Panel" method="_on_timer_timeout"]
