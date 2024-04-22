@@ -1,7 +1,7 @@
 extends Control
 
 const main_menu_scene = preload("res://src/scenes/ui/main_menu.tscn")
-const FILE_PATH = "res://data/save_game.csv"
+const FILE_PATH = "user://save_game.csv"
 @onready var VARIAVEIS_GLOBAIS = get_node("/root/VariaveisGlobais")
 @onready var DEFAULT_ROW = $VBoxContainer/DefaultRow
 @onready var VBOX = $VBoxContainer

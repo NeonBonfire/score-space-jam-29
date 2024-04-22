@@ -20,6 +20,21 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_047y5")
 
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/normal_font = ExtResource("1_7m84b")
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/italics_font_size = 20
+bbcode_enabled = true
+text = "[i][shake]Grab as many itens as you can, escape in time by the door!
+
+
+mouse click -> grab itens
+w a s d -> move the player[/shake][/i]"
+fit_content = true
+
 [node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
 layout_mode = 2
 
@@ -106,20 +121,3 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7m84b")
 theme_override_font_sizes/font_size = 32
 text = "Quit"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 832.0
-offset_top = 156.0
-offset_right = 1100.0
-offset_bottom = 248.0
-theme_override_fonts/normal_font = ExtResource("1_7m84b")
-theme_override_font_sizes/normal_font_size = 40
-theme_override_font_sizes/italics_font_size = 20
-bbcode_enabled = true
-text = "[i][shake]Grab as many itens as you can, escape in time by the door!
-
-
-mouse click -> grab itens
-w a s d -> move the player[/shake][/i]"
-fit_content = true
