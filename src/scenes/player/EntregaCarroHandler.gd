@@ -13,12 +13,12 @@ signal pontuacao_calculada(pontos: int)
 }
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("left_mouse"):
 		if get_overlapping_areas().size():
 			var pontos_locais: int = 0
 			for item in BOLSA.get_children():
-				pontos_locais += adiciona_pontuacao(item)
+				pontos_locais += int(adiciona_pontuacao(item))
 			pontuacao_calculada.emit(pontos_locais)
 
 

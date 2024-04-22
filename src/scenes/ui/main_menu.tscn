@@ -43,6 +43,8 @@ layout_mode = 2
 
 [node name="StartButton" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/StartButton"]
 layout_mode = 2
@@ -50,6 +52,7 @@ layout_mode = 2
 [node name="Selector" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/StartButton/HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("1_7m84b")
 theme_override_font_sizes/font_size = 32
 text = ">"
@@ -61,27 +64,31 @@ theme_override_fonts/font = ExtResource("1_7m84b")
 theme_override_font_sizes/font_size = 32
 text = "Start"
 
-[node name="OptionsButton" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer"]
+[node name="ScoreBoardButton" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/ScoreBoardButton"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/OptionsButton"]
-layout_mode = 2
-
-[node name="Selector" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/OptionsButton/HBoxContainer"]
+[node name="Selector" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/ScoreBoardButton/HBoxContainer"]
 custom_minimum_size = Vector2(15, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7m84b")
 theme_override_font_sizes/font_size = 32
 text = ">"
 
-[node name="Btn" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/OptionsButton/HBoxContainer"]
+[node name="Btn" type="Label" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/ScoreBoardButton/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_7m84b")
 theme_override_font_sizes/font_size = 32
-text = "Options"
+text = "Scoreboard"
 
 [node name="CreditsButton" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/CreditsButton"]
 layout_mode = 2
@@ -101,6 +108,8 @@ text = "Credits"
 
 [node name="QuitButton" type="CenterContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainMenu/CenterContainer/VBoxContainer/ButtonsBox/VBoxContainer/QuitButton"]
 layout_mode = 2
