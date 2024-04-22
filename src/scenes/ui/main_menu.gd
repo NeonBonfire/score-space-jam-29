@@ -1,6 +1,7 @@
 extends MarginContainer
 
 const game_start_scene = preload("res://src/scenes/map/casa.tscn")
+var already_running_option = false
 
 enum OPTIONS {
 	START = 0, 
@@ -47,8 +48,10 @@ func setCurrentSelection(_current_selection):
 	selectors[_current_selection].text = ">"
 
 func handleSelection(_current_selection):
-	if _current_selection in optionsActions:
-		self.call(optionsActions[_current_selection])
+	if !already_running_option: 
+		already_running_option = true
+		if _current_selection in optionsActions:
+			self.call(optionsActions[_current_selection])
 
 var optionsActions = {
 	OPTIONS.START: "startGame",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2l7x0jqy8xk0"]
+[gd_scene load_steps=12 format=3 uid="uid://d2l7x0jqy8xk0"]
 
 [ext_resource type="Script" path="res://src/scenes/map/casa.gd" id="1_7hdss"]
 [ext_resource type="PackedScene" uid="uid://d23wds0thuiyw" path="res://src/scenes/player/player.tscn" id="2_727vv"]
@@ -7,45 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://cgq244l7qjtak" path="res://src/scenes/objetosColidiveis/objeto_colidivel.tscn" id="4_gds6a"]
 [ext_resource type="Script" path="res://src/scenes/ui/timer/Panel.gd" id="5_ruq37"]
 [ext_resource type="FontFile" uid="uid://loxwahfvyn5h" path="res://src/assets/monogram.ttf" id="6_3y151"]
+[ext_resource type="PackedScene" uid="uid://b0v3tfpwauipo" path="res://src/scenes/coletaveis/carteira.tscn" id="8_o3rb2"]
+[ext_resource type="PackedScene" uid="uid://cigyk02tm83u7" path="res://src/scenes/coletaveis/colar.tscn" id="9_ig4ct"]
+[ext_resource type="PackedScene" uid="uid://dkb2jbufxlhgs" path="res://src/scenes/coletaveis/saco_de_ouro.tscn" id="10_0t4f3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_junn2"]
 size = Vector2(468, 208)
 
 [node name="Casa" type="Node2D"]
 script = ExtResource("1_7hdss")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Control" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = -46.0
-offset_right = 40.0
-offset_bottom = 26.0
-
-[node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.00814
-anchor_bottom = 0.980769
-offset_right = -35.7
-offset_bottom = -10.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.7, 1.7)
-theme_override_fonts/font = ExtResource("6_3y151")
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Tempo" type="CanvasLayer" parent="."]
 
@@ -84,7 +54,7 @@ position = Vector2(416, 208)
 [node name="ObjetoColidivel" parent="SofaColidivel" instance=ExtResource("4_gds6a")]
 
 [node name="Player" parent="." instance=ExtResource("2_727vv")]
-position = Vector2(546, 340)
+position = Vector2(832, 364)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = 0
@@ -94,21 +64,6 @@ limit_bottom = 2000
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
-
-[node name="Queijo2" parent="." instance=ExtResource("4_657qq")]
-position = Vector2(640, 418)
-
-[node name="Queijo4" parent="." instance=ExtResource("4_657qq")]
-position = Vector2(182, 520)
-
-[node name="Queijo5" parent="." instance=ExtResource("4_657qq")]
-position = Vector2(52, 260)
-
-[node name="Queijo" parent="." instance=ExtResource("4_657qq")]
-position = Vector2(130, 390)
-
-[node name="Queijo3" parent="." instance=ExtResource("4_657qq")]
-position = Vector2(286, 418)
 
 [node name="Carro" type="StaticBody2D" parent="."]
 position = Vector2(910, 130)
@@ -131,3 +86,15 @@ shape = SubResource("RectangleShape2D_junn2")
 modulate = Color(0.953257, 0.157162, 0.507438, 1)
 scale = Vector2(3.65625, 1.625)
 texture = ExtResource("2_j3g7t")
+
+[node name="Queijo" parent="." instance=ExtResource("4_657qq")]
+position = Vector2(520, 390)
+
+[node name="Carteira" parent="." instance=ExtResource("8_o3rb2")]
+position = Vector2(468, 520)
+
+[node name="Colar" parent="." instance=ExtResource("9_ig4ct")]
+position = Vector2(728, 572)
+
+[node name="SacoDeOuro" parent="." instance=ExtResource("10_0t4f3")]
+position = Vector2(1014, 520)
