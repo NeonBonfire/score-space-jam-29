@@ -1,7 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4l4tksw2uedu"]
+[gd_scene load_steps=8 format=3 uid="uid://b4l4tksw2uedu"]
 
 [ext_resource type="Script" path="res://src/scenes/ui/score_board/score_board.gd" id="1_a4vs5"]
 [ext_resource type="FontFile" uid="uid://loxwahfvyn5h" path="res://src/assets/monogram.ttf" id="1_cuy8a"]
+[ext_resource type="Texture2D" uid="uid://c81p8gpbany37" path="res://src/assets/92183d5e-ca59-4850-9c3e-e53433a943b9-0.png" id="2_ae0ae"]
+[ext_resource type="Texture2D" uid="uid://deehyouivcltg" path="res://src/assets/92183d5e-ca59-4850-9c3e-e53433a943b9-1.png" id="3_y5kfo"]
+[ext_resource type="Texture2D" uid="uid://c54m7aru80ab" path="res://src/assets/92183d5e-ca59-4850-9c3e-e53433a943b9-2.png" id="4_7kqif"]
+[ext_resource type="Texture2D" uid="uid://bvctv5q4mho78" path="res://src/assets/92183d5e-ca59-4850-9c3e-e53433a943b9-3.png" id="5_uskbn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cahdx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ae0ae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y5kfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7kqif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uskbn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [node name="ScoreBoard" type="Control"]
 layout_mode = 3
@@ -12,6 +36,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_a4vs5")
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(572, 325)
+scale = Vector2(1.86875, 1.95)
+sprite_frames = SubResource("SpriteFrames_cahdx")
+autoplay = "default"
+frame_progress = 0.627311
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1

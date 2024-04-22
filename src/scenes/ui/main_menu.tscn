@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c8788unyd10if"]
+[gd_scene load_steps=4 format=3 uid="uid://c8788unyd10if"]
 
 [ext_resource type="FontFile" uid="uid://loxwahfvyn5h" path="res://src/assets/monogram.ttf" id="1_7m84b"]
 [ext_resource type="Script" path="res://src/scenes/ui/main_menu.gd" id="1_047y5"]
+[ext_resource type="Texture2D" uid="uid://bd4uhkixoeol4" path="res://src/assets/meno_inicial.png" id="2_w8jwd"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -19,6 +20,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_047y5")
+
+[node name="MenoInicial" type="Sprite2D" parent="MainMenu"]
+position = Vector2(576, 325.5)
+scale = Vector2(1.83125, 1.84167)
+texture = ExtResource("2_w8jwd")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
 custom_minimum_size = Vector2(300, 0)
